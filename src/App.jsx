@@ -1,12 +1,21 @@
-import { createRoot } from 'react-dom/client'
-import SearchParams from "./SearchParams"
+import { createRoot } from "react-dom/client";
+import SearchParams from "./SearchParams";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Details from "./Details";
 
 // Your code is going to go here
 const App = () => {
- return(<div>
-    <h1>Adopt me!</h1>
-    <SearchParams />
-  </div>)
+  return (
+    <BrowserRouter>
+      <header>
+        <Link to="/">Adopt Me</Link>
+      </header>
+      <Routes>
+        <Route path="/" element={<SearchParams />} />
+        <Route path="/details/:id" element={<Details />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 const container = document.getElementById("root");
