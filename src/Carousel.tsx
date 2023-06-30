@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 
-export const Carousel = ({ images }) => {
+export const Carousel = ({ images }: { images: string[] }) => {
   const [active, setActive] = useState(0);
 
   const carouselImages = images
     ? images
     : ["http://pets-images.dev-apis.com/pets/none.jpg"];
 
-  const handleIndexClick = (e) => {
-    setActive(+e.target.dataset.index);
+  const handleIndexClick = (e: MouseEvent<HTMLElement>) => {
+    if (!(e.target instanceof HTMLElement)) {
+      return;
+    }
+    if (e?.target.dataset.index) {
+      setActive(+e?.target?.dataset?.index);
+    }
   };
 
   return (
