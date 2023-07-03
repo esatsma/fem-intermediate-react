@@ -1,4 +1,7 @@
 {
+    "globals": {
+        "vi": true
+    },
     "extends": [
         "eslint:recommended",
         "plugin:import/errors",

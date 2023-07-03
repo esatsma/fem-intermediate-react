@@ -13,13 +13,14 @@ export const Carousel = ({ images }) => {
 
   return (
     <div className="carousel">
-      <img src={carouselImages[active]} alt="animal" />
+      <img src={carouselImages[active]} data-testid="hero" alt="animal" />
       <div className="carousel-smaller">
         {images.map((photo, index) => (
           // eslint-disable-next-line
           <img
             key={photo}
             src={photo}
+            data-testid={`thumbnail${index}`}
             className={index === active ? "active" : ""}
             alt="animal thumbnail"
             onClick={(e) => handleIndexClick(e)}
@@ -30,3 +31,5 @@ export const Carousel = ({ images }) => {
     </div>
   );
 };
+
+export default Carousel;
